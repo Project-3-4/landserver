@@ -1,0 +1,28 @@
+{
+  "name": "landserver",
+  "version": "1.0.0",
+  "description": "Dit is de server die alle banken in het land beheert!!!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Project-3-4/landserver.git"
+  },
+  "keywords": [
+    "Server",
+    "land",
+    "geld",
+    "money"
+  ],
+  "author": "Nico van Ommen, Ruben Flinterman, Yordi Butter, Ryan Keemink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Project-3-4/landserver/issues"
+  },
+  "homepage": "https://github.com/Project-3-4/landserver#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
