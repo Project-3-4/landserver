@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Project-3-4/landserver#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3"
   }
 }
