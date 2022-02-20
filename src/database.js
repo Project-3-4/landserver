@@ -10,10 +10,15 @@ require("dotenv").config({
     path: filesystem.readFileSync(".env", "utf8"),
 });
 
-const domain = process.env.DATABASE_DOMAIN
-const schema = process.env.DATABASE_SCHEMA
-const dbuser = process.env.DATABASE_USERNAME
-const dbpass = process.env.DATABASE_PASSWORD
+// const domain = process.env.DATABASE_DOMAIN
+// const schema = process.env.DATABASE_SCHEMA
+// const dbuser = process.env.DATABASE_USERNAME
+// const dbpass = process.env.DATABASE_PASSWORD
+
+const domain = "127.0.0.1";
+const schema = "landserver";
+const dbuser = "niko";
+const dbpass = "henkdepotvis";
 
 let queryStr = "";
 let whereStr = "";
@@ -27,11 +32,13 @@ let connection = mysql.createConnection({
     host: domain,
     user: dbuser,
     password: dbpass,
+    database: schema,
+    insecureAuth : true,
 });
 
 connection.connect(error => {
     if (error) throw error;
-    console.log(`[${colors.green("success")}]\tConnection successfully!`);
+    console.log(`[${colors.green("SUCCESS")}]\tConnection successfully!`);
 });
 
 
@@ -59,7 +66,7 @@ function get(params) {
     }
 
     if (tableStr.length == 0) {
-        console.log(`[${colors.red("error")}]\tEr is geen table naam toegevoegd!`);
+        console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
 
@@ -74,7 +81,7 @@ function get(params) {
  */
 function insert(params) {
     if (tableStr.length == 0) {
-        console.log(`[${colors.red("error")}]\tEr is geen table naam toegevoegd!`);
+        console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
 
@@ -128,7 +135,7 @@ function insert(params) {
  */
 function update(params) {
     if (tableStr.length == 0) {
-        console.log(`[${colors.red("error")}]\tEr is geen table naam toegevoegd!`);
+        console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
 
@@ -197,11 +204,14 @@ function where(params) {
  * @return Mysql promises
  */
 function transaction() {
-    return connection.query(queryStr, function(error, results, fields) {
-        if (error) throw error;
-        console.log("Query " + queryStr + " executed..");
-        dispose();
-        return results;
+    console.log(`[${colors.blue("INFO")}]\t\tQuery: ${colors.magenta(queryStr)} executed!`);
+
+    return new Promise((resolve, reject) => {
+        connection.query(queryStr, function(error, results, fields) {
+            if (error) reject(error);
+            resolve(results);
+            dispose(); // Empties variables for the querybuilder 
+        });
     });
 }
 

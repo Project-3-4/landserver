@@ -5,7 +5,7 @@ const filesystem = require("fs");
 const colors = require("colors");
 const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
 
-const call = require('src/functions.js');
+const call = require('./functions.js');
 const {transaction} = require("./database");
 
 require("dotenv").config({
@@ -123,6 +123,12 @@ app.post("/newstate", async (req, res) => {
 
 // GUI
 app.get("/graphical", (req, res) => {
+  let d = call.getBalance(1);
+  d.then(result => {
+    console.log(result);
+  }).catch(error => {
+    console.log(error);
+  });
   res.send("Page for de GUI");
 });
 
