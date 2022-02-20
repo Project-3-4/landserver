@@ -4,6 +4,9 @@ const http = require("http");
 const filesystem = require("fs");
 const colors = require("colors");
 const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
+
+const call = require('src/functions.js');
+
 require("dotenv").config({
   path: filesystem.readFileSync(".env", "utf8"),
 });
@@ -80,23 +83,29 @@ let routeToBankOutsideCountry = (name, json) => {
   
 };
 
-
 /*
  * Routing
  */
 // Balance
-app.post("/balance", (req, res) => {
-  res.send(infoObj);
+app.post("/balance", async (req, res) => {
+    // res.send(infoObj);
+    const balance = await call.getBalance();
 });
 
 // Withdraw
-app.post("/withdraw", (req, res) => {
-  res.send(transferObj);
+app.post("/withdraw", async (req, res) => {
+    // res.send(transferObj);
+    const withdraw = await call.withdraw();
 });
 
 // Status
-app.get("/state", (req, res) => {
-  res.json(transferObj.state); // Dit moet worden opgevraagd uit de database
+app.get("/state", async (req, res) => {
+    // res.json(transferObj.state); // Dit moet worden opgevraagd uit de database
+    const state = await call.getState();
+});
+
+app.post("/newstate", async (req, res) => {
+    const state = await call.setState();
 });
 
 // GUI

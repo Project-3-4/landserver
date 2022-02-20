@@ -7,6 +7,7 @@ const colors = require("colors");
  */
 async function getBalance(userid) {
     query.get();
+    return;
 }
 
 /**
@@ -15,6 +16,7 @@ async function getBalance(userid) {
  */
 async function withdraw() {
     query.update();
+    return;
 }
 
 /**
@@ -23,6 +25,7 @@ async function withdraw() {
  */
 async function getState() {
     query.get();
+    return;
 }
 
 /**
@@ -31,4 +34,12 @@ async function getState() {
  */
 async function setState() {
     query.update();
+    return;
 }
+
+module.exports = {
+    getBalance,
+    withdraw,
+    getState,
+    setState
+};
