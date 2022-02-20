@@ -6,6 +6,7 @@ const colors = require("colors");
 const { DEC8_BIN } = require("mysql/lib/protocol/constants/charsets");
 
 const call = require('src/functions.js');
+const {transaction} = require("./database");
 
 require("dotenv").config({
   path: filesystem.readFileSync(".env", "utf8"),
@@ -88,24 +89,36 @@ let routeToBankOutsideCountry = (name, json) => {
  */
 // Balance
 app.post("/balance", async (req, res) => {
-    // res.send(infoObj);
-    const balance = await call.getBalance();
+    const userid = req.body.userid;
+    const balance = await call.getBalance(userid);
 });
 
 // Withdraw
 app.post("/withdraw", async (req, res) => {
-    // res.send(transferObj);
-    const withdraw = await call.withdraw();
+    const userid = req.body.userid;
+    const withdrawAmount = req.body.withdrawAmount;
+    const currentBalance = await call.getBalance(userid);
+    const withdraw = await call.withdraw(currentBalance, withdrawAmount);
+});
+
+// Deposit
+app.post("/deposit", async (req, res) => {
+    const userid = req.body.userid;
+    const depositAmount = req.body.depositAmount;
+    const currentBalance = await call.getBalance(userid);
+    const deposit = await call.deposit(currentBalance, depositAmount);
 });
 
 // Status
 app.get("/state", async (req, res) => {
-    // res.json(transferObj.state); // Dit moet worden opgevraagd uit de database
-    const state = await call.getState();
+    const transactionid = req.body.transactionId;
+    const state = await call.getState(transactionid);
 });
 
 app.post("/newstate", async (req, res) => {
-    const state = await call.setState();
+    const userid = req.body.transactionId;
+    const depositAmount = req.body.newState;
+    const state = await call.setState(transactionId, newState);
 });
 
 // GUI
