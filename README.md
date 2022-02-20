@@ -2,7 +2,7 @@
 Voor project 3/4 hebben de 'banken' van groenland samengewerkt om een gezamelijke landserver te maken.
 Het doel van de landserver is om de banken van het binnen en buitenland gescheiden te houden zonder extra code toe te voegen aan de ATMs zelf.
 
-## Contributors
+## Landserver Team
 - Nico
 - Ryan
 - Yordi
