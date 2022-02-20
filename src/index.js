@@ -91,6 +91,7 @@ let routeToBankOutsideCountry = (name, json) => {
 app.post("/balance", async (req, res) => {
     const userid = req.body.userid;
     const balance = await call.getBalance(userid);
+    res.send(balance);
 });
 
 // Withdraw
