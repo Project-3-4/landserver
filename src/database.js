@@ -86,9 +86,7 @@ function insert(params) {
     }
 
     queryStr = "INSERT INTO " + tableStr + " ( ";
-    objectKeys = Ob
-    
-    ject.keys(params);
+    objectKeys = Object.keys(params);
     objectValues = Object.values(params);
 
     if (objectKeys.length > 0 && objectValues.length > 0) {
