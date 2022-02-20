@@ -107,7 +107,6 @@ function insert(params) {
     }
 }
 
-<<<<<<< HEAD
 
 /**
  * Function to build the update query
@@ -123,9 +122,6 @@ function update(params) {
     queryStr = "UPDATE " + tableStr + " SET ";
     objectKeys = Object.keys(params);
     objectValues = Object.values(params);
-=======
-function update() {
->>>>>>> 706d1bf384203bfb14b2c9f5beeb03bbc04d602e
 
     if (objectKeys.length > 0 && objectValues.length > 0) {
         for (let i = 0; i < objectKeys.length; i++) {
