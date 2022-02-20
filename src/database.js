@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const colors = require("colors");
 const { param } = require("express/lib/request");
 
-/*
+/**
  * Load values fron environment file
  */
 require("dotenv").config({
@@ -39,7 +39,6 @@ connection.connect(error => {
 
 /**
  * Function to get data from the database
- * 
  * @param params param like: [param1, param2, param3]
  */
 function get(params) {
@@ -110,7 +109,6 @@ function insert(params) {
 
 /**
  * Function to build the update query
- * 
  * @param params
  */
 function update(params) {
@@ -149,7 +147,6 @@ function remove() {
 
 /**
  * Function for setting the table name
- * 
  * @param table
  */
 function table(table) {
@@ -158,7 +155,6 @@ function table(table) {
 
 /**
  * Function to build the
- * 
  * @param params insert array like this: [1, '<>=', 2] 
  */
 function where(params) {
