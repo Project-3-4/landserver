@@ -25,14 +25,13 @@ Zo kunnen we alle vragen op 1 plek verzamen, beantwoorden en zo nodig oplossen. 
 ## Project Instalatie
 > Als je ons project wilt gebruiken raden we je aan om de volgende instructies te volgen
 
-###Hoe gebruik ik dit project?
+### Hoe gebruik ik dit project?
 - Installeer [NodeJS](https://nodejs.org/en/download/), NPM zou automatisch mee moeten installeren.
 - Download de laatste [release](https://github.com/Project-3-4/landserver/releases) die door ons is vrijgegeven van onze github en zet deze op je server naar keuzen (and pak deze uit mocht dit nodig zijn)
 - Ga naar de root `/` van het project en voer `npm i --save` uit. Wacht tot dat alle modules klaar zijn met downloaden.
 - Maak nu je eigen `.env` bestand aan in de root `/` en vul deze in.
-  <details open>
+  <details>
   <summary>Inhoud van het .env bestand</summary>
-  <br>
   DEBUG=true
   <br>
   <br>
@@ -61,7 +60,7 @@ Zo kunnen we alle vragen op 1 plek verzamen, beantwoorden en zo nodig oplossen. 
 *Omdat wij de beveiliging van ons systeem voorop stellen stellen wij een aantal verplichtingen bij het opvragen en versturen van data*
 <br>
 Door deze eisen moet ons systeem de volgende data ontvangen: 
-```json
+```
 [
     {
         target: {
