@@ -57,7 +57,7 @@ Zo kunnen we alle vragen op 1 plek verzamen, beantwoorden en zo nodig oplossen. 
 > **Dit besluit is genomen vanwege veiligheidsredenen**
 
 ### Hoe maak ik gebruik van jullie API?
-*Omdat wij de beveiliging van ons systeem voorop stellen stellen wij een aantal verplichtingen bij het opvragen en versturen van data*
+*Omdat wij de beveiliging van ons systeem voorop stellen, stellen wij een aantal verplichtingen bij het opvragen en versturen van data.*
 <br>
 Door deze eisen moet ons systeem de volgende data ontvangen: 
 ```
