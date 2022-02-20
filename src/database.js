@@ -1,6 +1,7 @@
 const mysql = require("mysql");
 const colors = require("colors");
-const { param } = require("express/lib/request");
+const filesystem = require("fs");
+const e = require("express");
 
 /**
  * Load values fron environment file
@@ -17,6 +18,7 @@ const dbpass = process.env.DATABASE_PASSWORD
 let queryStr = "";
 let whereStr = "";
 let tableStr = "";
+let whereCount = 0;
 
 /*
  * Connect to Database with credentials from environment file
@@ -77,7 +79,9 @@ function insert(params) {
     }
 
     queryStr = "INSERT INTO " + tableStr + " ( ";
-    objectKeys = Object.keys(params);
+    objectKeys = Ob
+    
+    ject.keys(params);
     objectValues = Object.values(params);
 
     if (objectKeys.length > 0 && objectValues.length > 0) {
@@ -110,6 +114,17 @@ function insert(params) {
 /**
  * Function to build the update query
  * @param params
+ * params value is like:
+ * { 
+ * key1: '', 
+ * key2: '',
+ * ...,
+ * keyn: '',
+ * }
+ * 
+ * Keys must be the columnnames
+ * 
+ * Values can be the datatypes of the specific column 
  */
 function update(params) {
     if (tableStr.length == 0) {
@@ -153,12 +168,22 @@ function table(table) {
     tableStr = table;
 }
 
+
 /**
- * Function to build the
- * @param params insert array like this: [1, '<>=', 2] 
+ * Function to build the where query
+ * 
+ * @param params insert array like this:
+ * [1, 2, 3]
+ * 1 Value, can be either a integer or a string 
+ * 2 operator, choose from ( = | < | > | <> )
+ * 3 value, can be either integer, string, float or bool
  */
 function where(params) {
-    whereStr = "WHERE ";
+    if (whereCount > 0) {
+        whereStr += " AND ";
+    } else {
+        whereStr = "WHERE ";
+    }
 
     for (let i = 0; i < param.length; i++) {
         whereStr += param[i] + " ";
@@ -168,12 +193,27 @@ function where(params) {
 
 /**
  * Function for running the query
+ * 
+ * @return Mysql promises
  */
 function transaction() {
-    connection.query(queryStr, function(error, results, fields) {
+    return connection.query(queryStr, function(error, results, fields) {
         if (error) throw error;
         console.log("Query " + queryStr + " executed..");
+        dispose();
+        return results;
     });
+}
+
+
+/**
+ * Function to dispose values of some vars
+ */
+function dispose() {
+    queryStr = "";
+    tableStr = "";
+    whereStr = "";
+    whereCount = 0;
 }
 
 
