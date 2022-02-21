@@ -51,7 +51,7 @@ Zo kunnen we alle vragen op 1 plek verzamen, beantwoorden en zo nodig oplossen. 
 - Als je dit allemaal hebt gedaan kan je nu, vanaf je root `/`, het volgende uitvoeren: `node src/index.js`. Dit start de server. Mocht dit niet werken raden we je aan om dit [hier](https://github.com/Project-3-4/landserver/issues/new/choose) te melden als bug report.
 - Als het goed is werkt de server nu naar behoren. 
 
-## API Intergratie
+## API Intergratie [Wiki is nog niet af]
 > **BELANGRIJK VOOR MEDESTUDENTEN!** Hier worden onze API endpoints gedefineerd zodat deze gebruikt kunnen worden door meerdere mensen en hierdoor ook groepen.
 > Misbruik van de API endpoints kan leiden tot een (automatische) blacklist. Dit betekent dat je ***tijdelijk of permanent*** als gebruiker (en dus ook bank) geen gebruik meer kan maken van onze API endpoints. Hierdoor kan je geen geld meer opnemen of overmaken tot dat we je van de blacklist afhalen.
 > **Dit besluit is genomen vanwege veiligheidsredenen**
