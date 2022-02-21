@@ -1,4 +1,4 @@
-const query = require('./database');
+const query = require('database.js');
 const colors = require("colors");
 
 /**

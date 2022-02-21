@@ -91,6 +91,7 @@ let routeToBankOutsideCountry = (name, json) => {
 app.post("/balance", async (req, res) => {
     const userid = req.body.userid;
     const balance = await call.getBalance(userid);
+    res.JSON(balance);
 });
 
 // Withdraw
@@ -111,11 +112,12 @@ app.post("/deposit", async (req, res) => {
 
 // Status
 app.get("/state", async (req, res) => {
-    const transactionid = req.body.transactionId;
+    const transactionid = req.params.transactionId;
     const state = await call.getState(transactionid);
+    res.JSON(state);
 });
 
-app.post("/newstate", async (req, res) => {
+app.post("/state", async (req, res) => {
     const userid = req.body.transactionId;
     const depositAmount = req.body.newState;
     const state = await call.setState(transactionId, newState);
