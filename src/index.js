@@ -88,14 +88,14 @@ let routeToBankOutsideCountry = (name, json) => {
  * Routing
  */
 // Balance
-app.post("/balance", async (req, res) => {
+app.post("/api/balance/post", async (req, res) => {
     const userid = req.body.userid;
     const balance = await call.getBalance(userid);
     res.JSON(balance);
 });
 
 // Withdraw
-app.post("/withdraw", async (req, res) => {
+app.post("/api/withdraw/post", async (req, res) => {
     const userid = req.body.userid;
     const withdrawAmount = req.body.withdrawAmount;
     const currentBalance = await call.getBalance(userid);
@@ -103,7 +103,7 @@ app.post("/withdraw", async (req, res) => {
 });
 
 // Deposit
-app.post("/deposit", async (req, res) => {
+app.post("/api/deposit/post", async (req, res) => {
     const userid = req.body.userid;
     const depositAmount = req.body.depositAmount;
     const currentBalance = await call.getBalance(userid);
@@ -111,13 +111,13 @@ app.post("/deposit", async (req, res) => {
 });
 
 // Status
-app.get("/state", async (req, res) => {
+app.get("/api/state/get", async (req, res) => {
     const transactionid = req.params.transactionId;
     const state = await call.getState(transactionid);
     res.JSON(state);
 });
 
-app.post("/state", async (req, res) => {
+app.post("/api/state/post", async (req, res) => {
     const userid = req.body.transactionId;
     const depositAmount = req.body.newState;
     const state = await call.setState(transactionId, newState);
