@@ -57,43 +57,9 @@ Zo kunnen we alle vragen op 1 plek verzamen, beantwoorden en zo nodig oplossen. 
 > **Dit besluit is genomen vanwege veiligheidsredenen**
 
 ### Hoe maak ik gebruik van jullie API?
-*Omdat wij de beveiliging van ons systeem voorop stellen, stellen wij een aantal verplichtingen bij het opvragen en versturen van data.*
+Als een ander land kan je [zo gebruik maken van onze API](https://github.com/Project-3-4/landserver/wiki/API-Intergratie-Buitenland)
 <br>
-Door deze eisen moet ons systeem de volgende data ontvangen: 
-```
-[
-    {
-        target: {
-          toCountry,    // [STRING] Land van bestemming
-          fromCountry,  // [STRING] Land van herkomst
-          toBank,       // [STRING] Bank van bestemming
-          fromBank,     // [STRING] Bank van herkomst
-        },
-        user: {
-            username,   // [STRING] Wie vraagt het aan
-            email,      // [STRING] Wat is de email van de gene die de request aanvraagt
-            IBAN,       // [STRING] Wat is het IBAN nummer van de gene die de request aanvraagt 
-                        // (Een voorbeeld van een IBAN is NL00 INGB 0001 2345 67)
-        },
-        balance: {
-            requested,  // [FLOAT] Hoeveel geld wil je toevoegen?
-            withdraw,   // [FLOAT] Hoeveel geld wil je van je rekening afhalen?
-            current,    // [FLOAT] Wat is je huidige balans
-        },
-        encryption: {
-          type,         // [STRING] Welk type encryptie ga je gebruiken? (Ex: Base64)
-          seed,         // [STRING] SALT/SEED, je wachtwoord/identifier voor je string
-          certificate,  // [STRING] URL naar je eigen certificaat
-          used          // [BOOLEAN] Gebruik je enryptie? 
-        },
-        server: {
-            redirect,   // [STRING] Naar welke URL kan de server terugvallen mocht er iets fout gaan? 
-            origin,     // [STRING] Wat is de URL/IP+PORT van de server van herkomst
-            target,     // [STRING] Wat is de URL/IP+PORT van de server van afkomst
-        }
-    }
-]
-```
+Als hetzelfde land kan je [zo gebruik maken van onze API](https://github.com/Project-3-4/landserver/wiki/API-Intergratie-Binnenland)
 
 # (Stable) Releases
 > **BELANGRIJK!** Gebruik altijd de **laatste** release! Nieuwe releases kunnen beveiligings updates of belangrijke bug fixes bevatten.
