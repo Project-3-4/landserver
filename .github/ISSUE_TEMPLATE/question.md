@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Post a question regarding a particular commit
+about: Post a question regarding a particular commit or API blacklist
 title: "[Question] short description"
 labels: question
 assignees: ''
