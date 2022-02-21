@@ -122,8 +122,8 @@ app.post("/newstate", async (req, res) => {
 });
 
 // GUI
-app.get("/graphical", (req, res) => {
-  let d = call.getBalance(1);
+app.get("/graphical", async (req, res) => {
+  let d = await call.getBalance(1);
   d.then(result => {
     console.log(result);
   }).catch(error => {

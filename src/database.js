@@ -33,7 +33,7 @@ let connection = mysql.createConnection({
     user: dbuser,
     password: dbpass,
     database: schema,
-    insecureAuth : true,
+    insecureAuth : false,
 });
 
 connection.connect(error => {
