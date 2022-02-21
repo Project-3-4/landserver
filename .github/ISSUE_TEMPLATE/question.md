@@ -14,9 +14,10 @@ assignees: ''
 >    you may post it here as long as you link the trello card within this post.
 > - Please use text formatting in all issues. This makes the issue more readable.
 >    You can find Github's markdown documentation [here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+> - If your question is about an API blacklist, please provide your bank name, country and if possible an estimation of when it happend (i.e 31/12/2022 23:59)
 
 **What's your question?**
-A clear and concise description of what the bug is.
+A clear and concise description of what your question is.
 
 **What's the reason of your question?**
 
