@@ -6,9 +6,9 @@ const colors = require("colors");
  * @param userid
  */
 async function getBalance(userid) {
-    query.table('account'); // Set table
+    query.table('balance'); // Set table
     query.get(['balance']); // Get current balance
-    query.where(['userid', '=', userid]) // Where userid == X
+    // query.where(['userid', '=', userid]) // Where userid == X
     return query.transaction(); // Execute query on set table
 }
 
