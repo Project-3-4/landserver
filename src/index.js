@@ -88,8 +88,8 @@ let routeToBankOutsideCountry = (name, json) => {
  * Routing
  */
 // Balance
-app.post("/api/balance/post", async (req, res) => {
-    const userid = req.body.userid;
+app.get("/api/balance/get", async (req, res) => {
+    const userid = req.params.userid;
     const balance = await call.getBalance(userid);
     res.JSON(balance);
 });
