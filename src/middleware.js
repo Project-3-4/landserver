@@ -55,10 +55,9 @@ let apiEndpoint = `
  * @returns 
  */
 function addBankToBlacklist(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0)
         return;
-    }
-    bankBlacklist.push("bank");
+    bankBlacklist.push(bank);
 }
 
 
