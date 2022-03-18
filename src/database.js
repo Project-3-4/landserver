@@ -15,6 +15,7 @@ require("dotenv").config({
 // const dbuser = process.env.DATABASE_USERNAME
 // const dbpass = process.env.DATABASE_PASSWORD
 
+// TODO: Please obfuscate immediately
 const domain = "127.0.0.1";
 const schema = "landserver";
 const dbuser = "niko";
