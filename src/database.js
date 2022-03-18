@@ -188,8 +188,8 @@ function where(params) {
         whereStr = "WHERE ";
     }
 
-    for (let i = 0; i < param.length; i++) {
-        whereStr += param[i] + " ";
+    for (let i = 0; i < params.length; i++) {
+        whereStr += params[i] + " ";
     }
 }
 
