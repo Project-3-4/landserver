@@ -58,7 +58,6 @@ function addBankToBlacklist(bank) {
     if (bank.length <= 0) {
         return;
     }
-
     bankBlacklist.push("bank");
 }
 
@@ -69,11 +68,10 @@ function addBankToBlacklist(bank) {
  * @returns 
  */
 function removeBankFromBlacklist(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || !bankBlacklist.includes(bank))
         return;
-    }
-
-    bankBlacklist.pop(bank);
+    const index = bankBlacklist.findIndex(bank);
+    bankBlacklist.splice(index, 1);
 }
 
 
