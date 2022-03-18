@@ -112,7 +112,6 @@ function insert(params) {
         }
     } else {
         console.log(``);
-        return;
     }
 }
 
@@ -152,8 +151,6 @@ function update(params) {
         }
     
         queryStr += " " + whereStr + ";";
-    } else {
-        return;
     }
 }
 
