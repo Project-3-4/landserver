@@ -83,15 +83,7 @@ function removeBankFromBlacklist(bank) {
  * @returns true | false 
  */
 function checkIfBankInBlacklist(bank) {
-    if (bank.length <= 0) {
-        return false;
-    }
-
-    if (bankBlacklist.find(bank)) {
-        return true;
-    }
-
-    return false;
+    return bankBlacklist.find(bank);
 }
 
 
