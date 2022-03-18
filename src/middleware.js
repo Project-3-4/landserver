@@ -92,10 +92,8 @@ function checkIfBankInBlacklist(bank) {
  * @param bank 
  */
 function addBankToRegister(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || bankRegister.includes(bank))
         return;
-    }
-
     bankRegister.push(bank);
 }
 
