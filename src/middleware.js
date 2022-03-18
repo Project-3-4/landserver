@@ -83,7 +83,7 @@ function removeBankFromBlacklist(bank) {
  * @returns true | false 
  */
 function checkIfBankInBlacklist(bank) {
-    return bankBlacklist.find(bank);
+    return bankBlacklist.includes(bank);
 }
 
 
