@@ -108,5 +108,3 @@ function removeBankFromRegister(bank) {
     const index = bankRegister.findIndex(bank);
     bankRegister.splice(index, 1);
 }
-
-
