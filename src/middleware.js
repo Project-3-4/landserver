@@ -103,11 +103,10 @@ function addBankToRegister(bank) {
  * @param bank 
  */
 function removeBankFromRegister(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || !bankRegister.includes(bank))
         return;
-    }
-
-    bankRegister.pop(bank);
+    const index = bankRegister.findIndex(bank);
+    bankRegister.splice(index, 1);
 }
 
 
