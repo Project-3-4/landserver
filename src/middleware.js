@@ -1,6 +1,5 @@
 const database = require("./database");
 const colors = require("colors");
-const crypto = require("crypto");
 
 /**
  * Global variables
