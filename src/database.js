@@ -15,6 +15,7 @@ require("dotenv").config({
 // const dbuser = process.env.DATABASE_USERNAME
 // const dbpass = process.env.DATABASE_PASSWORD
 
+// TODO: Please obfuscate immediately
 const domain = "127.0.0.1";
 const schema = "landserver";
 const dbuser = "niko";
@@ -53,11 +54,11 @@ connection.connect(error => {
 function get(params) {
     queryStr = "SELECT ";
 
-    if (params.length != 0) {
+    if (params.length !== 0) {
         for (let i = 0; i < params.length; i++) {
             queryStr += params[i];
 
-            if (i != params.length-1) {
+            if (i !== params.length-1) {
                 queryStr += ", ";
             }
         }
@@ -65,7 +66,7 @@ function get(params) {
         queryStr += "*";
     }
 
-    if (tableStr.length == 0) {
+    if (tableStr.length === 0) {
         console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
@@ -80,7 +81,7 @@ function get(params) {
  * }
  */
 function insert(params) {
-    if (tableStr.length == 0) {
+    if (tableStr.length === 0) {
         console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
@@ -93,7 +94,7 @@ function insert(params) {
         for (let i = 0; i < objectKeys.length; i++) {
             queryStr += objectKeys[i];
 
-            if (i != objectKeys.length-1) {
+            if (i !== objectKeys.length-1) {
                 queryStr += ", ";
             }
         }
@@ -103,7 +104,7 @@ function insert(params) {
         for (let i = 0; i < objectValues.length; i++) {
             queryStr += `"${objectValues[i]}"`;
 
-            if (i != objectValues.length-1) {
+            if (i !== objectValues.length-1) {
                 queryStr += ", ";
             } else {
                 queryStr += ");";
@@ -111,7 +112,6 @@ function insert(params) {
         }
     } else {
         console.log(``);
-        return;
     }
 }
 
@@ -132,7 +132,7 @@ function insert(params) {
  * Values can be the datatypes of the specific column 
  */
 function update(params) {
-    if (tableStr.length == 0) {
+    if (tableStr.length === 0) {
         console.log(`[${colors.red("ERROR")}]\tEr is geen table naam toegevoegd!`);
         return;
     }
@@ -145,14 +145,12 @@ function update(params) {
         for (let i = 0; i < objectKeys.length; i++) {
             queryStr += `${objectKeys[i]} = "${objectValues[i]}"`;
     
-            if (i != objectKeys.length) {
+            if (i !== objectKeys.length) {
                 queryStr += ", ";
             }
         }
     
         queryStr += " " + whereStr + ";";
-    } else {
-        return;
     }
 }
 
@@ -190,8 +188,8 @@ function where(params) {
         whereStr = "WHERE ";
     }
 
-    for (let i = 0; i < param.length; i++) {
-        whereStr += param[i] + " ";
+    for (let i = 0; i < params.length; i++) {
+        whereStr += params[i] + " ";
     }
 }
 

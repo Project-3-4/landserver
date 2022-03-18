@@ -1,6 +1,5 @@
 const database = require("./database");
 const colors = require("colors");
-const crypto = require("crypto");
 
 /**
  * Global variables
@@ -56,11 +55,9 @@ let apiEndpoint = `
  * @returns 
  */
 function addBankToBlacklist(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0)
         return;
-    }
-
-    bankBlacklist.push("bank");
+    bankBlacklist.push(bank);
 }
 
 
@@ -70,11 +67,10 @@ function addBankToBlacklist(bank) {
  * @returns 
  */
 function removeBankFromBlacklist(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || !bankBlacklist.includes(bank))
         return;
-    }
-
-    bankBlacklist.pop(bank);
+    const index = bankBlacklist.findIndex(bank);
+    bankBlacklist.splice(index, 1);
 }
 
 
@@ -84,15 +80,7 @@ function removeBankFromBlacklist(bank) {
  * @returns true | false 
  */
 function checkIfBankInBlacklist(bank) {
-    if (bank.length <= 0) {
-        return false;
-    }
-
-    if (bankBlacklist.find(bank)) {
-        return true;
-    }
-
-    return false;
+    return bankBlacklist.includes(bank);
 }
 
 
@@ -101,10 +89,8 @@ function checkIfBankInBlacklist(bank) {
  * @param bank 
  */
 function addBankToRegister(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || bankRegister.includes(bank))
         return;
-    }
-
     bankRegister.push(bank);
 }
 
@@ -114,11 +100,8 @@ function addBankToRegister(bank) {
  * @param bank 
  */
 function removeBankFromRegister(bank) {
-    if (bank.length <= 0) {
+    if (bank.length === 0 || !bankRegister.includes(bank))
         return;
-    }
-
-    bankRegister.pop(bank);
+    const index = bankRegister.findIndex(bank);
+    bankRegister.splice(index, 1);
 }
-
-

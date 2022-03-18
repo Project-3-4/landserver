@@ -13,7 +13,7 @@ require("dotenv").config({
 });
 
 // https://gitlab.cmi.hro.nl/skelm/noob/-/blob/master/src/landserver_T1/server.js
-if (process.env.DEBUG == false) {
+if (process.env.DEBUG === false) {
   let privateKey = filesystem.readFileSync("certificates/", "utf8");
   let certificate = filesystem.readFileSync("certificates/", "utf8");
   let credentials = {
@@ -88,14 +88,14 @@ let routeToBankOutsideCountry = (name, json) => {
  * Routing
  */
 // Balance
-app.get("/api/balance/get", async (req, res) => {
+app.get("/api/balance", async (req, res) => {
     const userid = req.params.userid;
     const balance = await call.getBalance(userid);
     res.JSON(balance);
 });
 
 // Withdraw
-app.post("/api/withdraw/post", async (req, res) => {
+app.post("/api/withdraw", async (req, res) => {
     const userid = req.body.userid;
     const withdrawAmount = req.body.withdrawAmount;
     const currentBalance = await call.getBalance(userid);
@@ -103,7 +103,7 @@ app.post("/api/withdraw/post", async (req, res) => {
 });
 
 // Deposit
-app.post("/api/deposit/post", async (req, res) => {
+app.post("/api/deposit", async (req, res) => {
     const userid = req.body.userid;
     const depositAmount = req.body.depositAmount;
     const currentBalance = await call.getBalance(userid);
@@ -111,13 +111,13 @@ app.post("/api/deposit/post", async (req, res) => {
 });
 
 // Status
-app.get("/api/state/get", async (req, res) => {
+app.get("/api/state", async (req, res) => {
     const transactionid = req.params.transactionId;
     const state = await call.getState(transactionid);
     res.JSON(state);
 });
 
-app.post("/api/state/post", async (req, res) => {
+app.post("/api/state", async (req, res) => {
     const userid = req.body.transactionId;
     const depositAmount = req.body.newState;
     const state = await call.setState(transactionId, newState);
@@ -138,7 +138,7 @@ app.get("/graphical", async (req, res) => {
  * Setup server
  */
 // When de app enters production state
-if (process.env.DEBUG == false) {
+if (process.env.DEBUG === false) {
   let server = https.createServer(credentials, app).listen(PORT);
   console.log(`[${colors.red("DEBUG OFF")}]\tListening on: https://localhost:${PORT}`);
   // When de app is in debug state
